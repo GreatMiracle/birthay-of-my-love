@@ -1,31 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Happy Birthday My Love</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <!-- Nhạc nền -->
-  <audio id="bg-music" autoplay loop>
-    <source src="audio/happy-birthday.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
+  <div id="music-controls">
+    <button id="toggleMusic" onclick="toggleMusic()">🔈</button>
+    <select id="trackSelector" onchange="changeTrack(this.value)">
+      <option value="audio/VoYeu.mp3">Vợ Yêu</option>
+      <option value="audio/HanhPhucMoiNgay.mp3">Hạnh Phúc Mỗi Ngày</option>
+      <option value="audio/NgayDauTien.mp3">Ngày Đầu Tiên</option>
+    </select>
+  </div>
+
+  <!-- Thêm audio -->
+  <audio id="bg-music" loop autoplay>
+    <source src="1audio/VoYeu.mp3" type="audio/mp3">
   </audio>
 
-  <canvas id="fireworksCanvas"></canvas> <!-- 🔥 Canvas pháo hoa -->
+  <canvas id="fireworksCanvas"></canvas>
   <div id="fireworkText">Chúc mừng sinh nhật Hường yêu 💖</div>
 
   <div class="container">
     <h1>🎉 Happy Birthday, Em Yêu! 🎂</h1>
     <p class="message">Hôm nay là một ngày thật đặc biệt, vì có một cô gái siêu dễ thương được sinh ra 💖</p>
-    <button onclick="startJourney()">Nhấn vào đây nè!</button>
+    <button id="startBtn" onclick="startJourney()">Nhấn vào đây nè!</button>
 
     <div id="journey" class="hidden">
       <div id="eventText" class="event-box"></div>
-      <button id="nextBtn" onclick="showNextEvent()">👉 Tiếp theo nè!</button>
+      <button id="nextBtn" class="hidden" onclick="showNextEvent()">👉 Tiếp theo nè!</button>
     </div>
   </div>
 
   <script src="script.js"></script>
 </body>
+
 </html>
