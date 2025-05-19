@@ -68,7 +68,6 @@ button:hover {
   }
 }
 
-/* Hiệu ứng trái tim rơi */
 .heart {
   position: fixed;
   color: #ff5eae;
@@ -88,6 +87,7 @@ button:hover {
     opacity: 0;
   }
 }
+
 #fireworksCanvas {
   position: fixed;
   top: 0;
@@ -97,6 +97,7 @@ button:hover {
   z-index: 0;
   pointer-events: none;
 }
+
 #fireworkText {
   position: fixed;
   top: 30%;
@@ -147,6 +148,7 @@ button:hover {
   margin-top: 15px;
   box-shadow: 0 0 10px rgba(255, 192, 203, 0.5);
 }
+
 #music-controls {
   position: fixed;
   top: 20px;
@@ -163,6 +165,7 @@ button:hover {
   border: none;
   cursor: pointer;
 }
+
 #fireworksCanvas,
 #fireworkText {
   display: none;
@@ -184,7 +187,7 @@ button:hover {
 .event-image {
   max-width: 45%;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .heart-icon {
@@ -193,7 +196,98 @@ button:hover {
 }
 
 @keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.4); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.question {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #ff4081;
+  font-weight: bold;
+}
+
+.answer-btn {
+  background-color: #ff5eae;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 1rem;
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.answer-btn:hover {
+  background-color: #ff2d95;
+}
+
+.troll-message {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #ff4081;
+  font-weight: bold;
+}
+
+.troll-btn {
+  background-color: #ff5eae;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 10px rgba(255, 105, 180, 0.7);
+}
+
+.troll-btn:hover {
+  background-color: #ff2d95;
+  transform: scale(1.1);
+}
+
+.photo-input {
+  margin: 10px auto;
+  padding: 10px;
+  font-size: 1rem;
+  border: 2px solid #ff5eae;
+  border-radius: 10px;
+  background-color: #fff;
+  color: #ff4081;
+  display: block;
+  cursor: pointer;
+}
+
+.photo-input:hover {
+  border-color: #ff2d95;
+}
+
+.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  75% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
