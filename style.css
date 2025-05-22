@@ -291,3 +291,78 @@ button:hover {
     transform: translateX(0);
   }
 }
+
+.countdown {
+  margin: 20px 0;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 192, 203, 0.5);
+  color: #ff4081;
+  font-size: 1.1rem;
+}
+
+.countdown-text {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.countdown-timer {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.countdown-timer span {
+  background-color: #ff5eae;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.event-video {
+  max-width: 400px;
+  width: 100%;
+  border-radius: 10px;
+  margin: 15px auto;
+  box-shadow: 0 0 10px rgba(255, 192, 203, 0.5);
+  display: block;
+}
+
+/* CẬP NHẬT: Container cho hình chữ H */
+.heart-container {
+  display: grid;
+  grid-template-columns: repeat(11, 40px); /* 11 cột, mỗi cột 40px */
+  grid-gap: 5px; /* Khoảng cách giữa các ô */
+  justify-content: center; /* Căn giữa lưới */
+  margin-top: 20px;
+  width: fit-content; /* Container chỉ rộng vừa đủ nội dung */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.heart-item {
+  font-size: 30px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: 0.3s;
+  text-align: center;
+  line-height: 40px; /* Căn giữa theo chiều dọc */
+}
+
+.heart-item:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.special-heart {
+  color: #ff2d95; /* Màu hồng đậm cho trái tim đặc biệt */
+  font-size: 30px;
+  opacity: 0.3; /* Mờ ban đầu */
+}
+
+.special-heart:hover {
+  opacity: 1;
+  transform: scale(1.5);
+}
