@@ -1,90 +1,90 @@
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #fff0f5;
+  background-color: #fff0f5; /* Màu nền hồng nhạt */
   text-align: center;
   padding: 50px;
-  overflow-x: hidden;
+  overflow-x: hidden; /* Ngăn cuộn ngang */
 }
 
 .container {
-  background-color: #ffe4ec;
-  border-radius: 15px;
+  background-color: #ffe4ec; /* Màu nền container */
+  border-radius: 15px; /* Bo góc */
   padding: 30px;
-  max-width: 700px;
-  margin: auto;
-  box-shadow: 0 0 20px rgba(255, 192, 203, 0.5);
+  max-width: 700px; /* Độ rộng tối đa */
+  margin: auto; /* Căn giữa */
+  box-shadow: 0 0 20px rgba(255, 192, 203, 0.5); /* Hiệu ứng bóng */
 }
 
 h1 {
-  color: #ff69b4;
+  color: #ff69b4; /* Màu tiêu đề */
   font-size: 2.5rem;
 }
 
 .message {
   font-size: 1.2rem;
   margin-bottom: 20px;
-  color: #d63384;
+  color: #d63384; /* Màu chữ thông điệp */
 }
 
 button {
-  background-color: #ff5eae;
+  background-color: #ff5eae; /* Màu nền nút */
   border: none;
   padding: 12px 24px;
   font-size: 1rem;
-  color: white;
-  border-radius: 25px;
+  color: white; /* Màu chữ nút */
+  border-radius: 25px; /* Bo góc nút */
   cursor: pointer;
   margin-top: 20px;
-  transition: 0.3s;
+  transition: 0.3s; /* Hiệu ứng chuyển đổi */
 }
 
 button:hover {
-  background-color: #ff2d95;
+  background-color: #ff2d95; /* Màu khi hover */
 }
 
 .hidden {
-  display: none;
+  display: none; /* Ẩn phần tử */
 }
 
 .event-box {
   margin-top: 20px;
-  background-color: #fff;
+  background-color: #fff; /* Màu nền hộp sự kiện */
   border-radius: 15px;
   padding: 20px;
-  color: #ff4081;
+  color: #ff4081; /* Màu chữ */
   font-size: 1.1rem;
-  box-shadow: 0 0 10px rgba(255, 192, 203, 0.3);
-  animation: fadeIn 0.5s ease-in-out;
+  box-shadow: 0 0 10px rgba(255, 192, 203, 0.3); /* Hiệu ứng bóng */
+  animation: fadeIn 0.5s ease-in-out; /* Hiệu ứng fade in */
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(20px); /* Di chuyển lên từ dưới */
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0); /* Về vị trí ban đầu */
   }
 }
 
 .heart {
-  position: fixed;
-  color: #ff5eae;
+  position: fixed; /* Vị trí cố định */
+  color: #ff5eae; /* Màu trái tim */
   font-size: 20px;
-  animation: fall 5s linear forwards;
-  z-index: 9999;
-  pointer-events: none;
+  animation: fall 5s linear forwards; /* Hiệu ứng rơi */
+  z-index: 9999; /* Đưa lên trên cùng */
+  pointer-events: none; /* Không cho tương tác */
 }
 
 @keyframes fall {
   0% {
-    transform: translateY(0) rotate(0deg);
+    transform: translateY(0) rotate(0deg); /* Bắt đầu */
     opacity: 1;
   }
   100% {
-    transform: translateY(100vh) rotate(360deg);
-    opacity: 0;
+    transform: translateY(100vh) rotate(360deg); /* Rơi xuống và xoay */
+    opacity: 0; /* Mất dần */
   }
 }
 
@@ -94,7 +94,7 @@ button:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0;
+  z-index: 0; /* Đặt dưới cùng */
   pointer-events: none;
 }
 
@@ -108,9 +108,9 @@ button:hover {
   font-family: 'Courier New', Courier, monospace;
   color: #fff;
   z-index: 999;
-  text-shadow: 0 0 10px #ff66cc, 0 0 20px #ffccff, 0 0 30px #ff99cc;
+  text-shadow: 0 0 10px #ff66cc, 0 0 20px #ffccff, 0 0 30px #ff99cc; /* Hiệu ứng bóng chữ */
   opacity: 0;
-  animation: twinkle 3s ease-in-out infinite;
+  animation: twinkle 3s ease-in-out infinite; /* Hiệu ứng nhấp nháy */
   pointer-events: none;
 }
 
@@ -192,7 +192,7 @@ button:hover {
 
 .heart-icon {
   font-size: 30px;
-  animation: pulse 1s infinite;
+  animation: pulse 1s infinite; /* Hiệu ứng đập */
 }
 
 @keyframes pulse {
@@ -271,7 +271,7 @@ button:hover {
 }
 
 .shake {
-  animation: shake 0.5s ease-in-out;
+  animation: shake 0.5s ease-in-out; /* Hiệu ứng rung */
 }
 
 @keyframes shake {
@@ -330,7 +330,7 @@ button:hover {
   display: block;
 }
 
-/* CẬP NHẬT: Container cho hình chữ H */
+/* Container cho hình chữ H */
 .heart-container {
   display: grid;
   grid-template-columns: repeat(11, 40px); /* 11 cột, mỗi cột 40px */
@@ -365,4 +365,233 @@ button:hover {
 .special-heart:hover {
   opacity: 1;
   transform: scale(1.5);
+}
+
+/* CSS cho tính năng kéo thả */
+.drag-drop-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.drop-zone-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+.drop-zone {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background-color: #ffe4e1;
+  border: 2px dashed #ff5eae;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #ff4081;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.drop-zone.filled {
+  background-color: #ffcccb;
+  border: 2px solid #ff2d95;
+  animation: pop 0.3s ease-in-out;
+}
+
+.drop-zone.correct {
+  background-color: #98fb98;
+  border: 2px solid #32cd32;
+}
+
+.drop-zone.wrong {
+  animation: shake 0.5s ease-in-out;
+}
+
+.drop-zone .char {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.drop-zone .clear-btn {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #ff4040;
+  color: white;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  font-size: 10px;
+  line-height: 16px;
+  text-align: center;
+  cursor: pointer;
+  display: none;
+  transition: 0.3s;
+}
+
+.drop-zone.filled .clear-btn {
+  display: block;
+}
+
+.drop-zone .clear-btn:hover {
+  background-color: #ff0000;
+  transform: scale(1.2);
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.draggable-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.draggable-item {
+  width: 40px;
+  height: 40px;
+  background-color: #ff5eae;
+  color: white;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: move;
+  transition: 0.3s;
+}
+
+.draggable-item:hover {
+  background-color: #ff2d95;
+  transform: scale(1.1);
+}
+
+.draggable-item.dragging {
+  opacity: 0.5;
+  transform: scale(1.2);
+}
+
+.draggable-item.used {
+  cursor: not-allowed;
+}
+
+/* CSS cho tính năng chụp ảnh */
+.photo-options {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+#camera-container {
+  margin: 20px auto;
+  text-align: center;
+}
+
+#camera-feed {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 10px;
+  border: 2px solid #ff5eae;
+}
+
+#camera-canvas {
+  display: none;
+}
+
+.camera-controls {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+#photo-preview {
+  margin: 20px auto;
+  text-align: center;
+}
+
+#captured-photo {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 10px;
+  border: 2px solid #ff5eae;
+}
+
+.photo-preview-controls {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cancel-btn {
+  background-color: #ff4040;
+}
+
+.cancel-btn:hover {
+  background-color: #ff0000;
+}
+
+/* CẬP NHẬT MỚI: CSS cho popup */
+#successPopup {
+  position: fixed; /* Vị trí cố định trên màn hình */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Nền mờ */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Đưa lên trên cùng */
+}
+
+.popup-content {
+  background-color: #fff; /* Màu nền popup */
+  border-radius: 15px;
+  padding: 20px;
+  max-width: 400px; /* Độ rộng tối đa */
+  text-align: center;
+  box-shadow: 0 0 20px rgba(255, 192, 203, 0.5); /* Hiệu ứng bóng */
+  animation: pop 0.3s ease-in-out; /* Hiệu ứng nảy lên */
+}
+
+#popupMessage {
+  font-size: 1.2rem;
+  color: #ff4081; /* Màu chữ thông điệp */
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+#popupOkBtn {
+  background-color: #ff5eae;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#popupOkBtn:hover {
+  background-color: #ff2d95;
 }

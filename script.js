@@ -5,8 +5,8 @@ const events = [
     question: "Em có nhớ ngày đầu tiên 2 đứa mình quen nhau là ngày nào khum?",
     answers: [
       { text: "17/03/2025", correct: true },
-      { text: "18/03/2025", correct: false },
-      { text: "16/03/2025", correct: false }
+      { text: "01/04/2025", correct: false },
+      { text: "03/04/2025", correct: false }
     ]
   },
   {
@@ -20,7 +20,7 @@ const events = [
   },
   {
     text: "😘 <strong>Hường hôn anh rùi đó, hứ... thấy ghét 😤😤😤:</strong><br>Dạaaa anh biết rùi...Vợ hôn người ta mạnh thếrrr. Nhưng mà ngta thích lắm ý. Yêu em quá trời 😍. <br>Thoy ngta mềm lòng rùi mở cho xem phần tiếp nezzz 😍",
-    img: "images/cafe.jpg",
+    img: "images/cafe.jpg", // Ảnh mặc định, sẽ bị thay thế bằng ảnh đã chụp
     troll: {
       message: "Hôn anh một cái thì anh mới cho mở tiếp 😘",
       actionText: "Hôn anh 😘",
@@ -45,12 +45,27 @@ const events = [
     video: "videos/18-4.mp4",
   },
   {
+    text: "🌸 <strong>Yêu vợ nhiều lắm</strong><br>Ngày anh tỏ tình với Hường là ngày nào nào... điền để mở khóa nhé",
+    dragDrop: {
+      message: "Ghép các mảnh trái tim để hoàn thành đúng ngày anh tỏ tình với em nhé! 💗<br><small>(Kéo thả mảnh ghép vào ô trống format: d/m/yyyy, nhấp 'X' để xóa nếu sai nha.. nhấp nhẹ nhẹ thui)</small>",
+      target: "5/5/2025",
+      action: "handleDragDropComplete"
+    },
+    video: "videos/18-4.mp4",
+  },
+  {
+    text: "🎂 <strong>rạng sáng 06/05/2025 Giờ Nhật Bản:</strong><br>Bản tin chiến thắng, chinh phục thành công trái tim em 💖",
+    img: "images/5-5.jpg"
+  },
+  {
     text: "🎂 <strong>04/06/2025:</strong><br>Hôm nay là sinh nhật em yêu! Anh làm trang web này để kể lại câu chuyện của tụi mình. Anh muốn nói: Anh yêu em nhiều lắmmm, Hường vợ iêu của anh! 💖",
-    img: "images/birthday.jpg"
+    img: "images/H-yeu.jpg"
   }
 ];
 
 let currentEvent = 0;
+let stream = null; // Biến lưu stream từ camera
+let capturedImage = null; // Biến lưu URL của ảnh đã chụp hoặc tải lên
 
 function startCountdown() {
   const countdownElement = document.getElementById('countdown');
@@ -116,7 +131,6 @@ function showNextEvent() {
     } else if (event.findHeart) {
       let html = `<div class="troll-message">${event.findHeart.message}</div>`;
       html += `<div class="heart-container">`;
-      // Bố cục chữ H trong lưới 11x8
       const hLayout = [
         [1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1],
         [1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1],
@@ -127,7 +141,6 @@ function showNextEvent() {
         [1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1],
         [1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1]
       ];
-      // Lưu các vị trí có trái tim (1)
       const heartPositions = [];
       hLayout.forEach((row, rowIndex) => {
         row.forEach((cell, colIndex) => {
@@ -136,10 +149,8 @@ function showNextEvent() {
           }
         });
       });
-      // Chọn ngẫu nhiên một vị trí cho trái tim đặc biệt
       const randomIndex = Math.floor(Math.random() * heartPositions.length);
       const specialHeartPos = heartPositions[randomIndex];
-      // Tạo lưới
       hLayout.forEach((row, rowIndex) => {
         row.forEach((cell, colIndex) => {
           if (cell === 1) {
@@ -149,10 +160,36 @@ function showNextEvent() {
               html += `<span class="heart-item">💗</span>`;
             }
           } else {
-            html += `<span></span>`; // Ô trống
+            html += `<span></span>`;
           }
         });
       });
+      html += `</div>`;
+      eventBox.innerHTML = html;
+      nextBtn.classList.add('hidden');
+    } else if (event.dragDrop) {
+      let html = `<div class="troll-message">${event.dragDrop.message}</div>`;
+      html += `<div class="drag-drop-container">`;
+      // Tạo ô trống (drop zones)
+      html += `<div class="drop-zone-container">`;
+      const target = event.dragDrop.target;
+      for (let i = 0; i < target.length; i++) {
+        if (target[i] === ' ') {
+          html += `<span style="width: 10px;"></span>`;
+        } else {
+          html += `<span class="drop-zone" data-char="${target[i]}" ondragover="handleDragOver(event)" ondrop="handleDrop(event, ${currentEvent})"><span class="clear-btn" onclick="clearDropZone(this, ${currentEvent})">X</span></span>`;
+        }
+      }
+      html += `</div>`;
+      // Tạo mảnh ghép (draggable items) với data-id duy nhất
+      html += `<div class="draggable-container">`;
+      const chars = target.split('').filter(char => char !== ' ');
+      const shuffledChars = chars.sort(() => Math.random() - 0.5);
+      let idCounter = 0;
+      shuffledChars.forEach(char => {
+        html += `<span class="draggable-item" draggable="true" ondragstart="handleDragStart(event)" data-char="${char}" data-id="${idCounter++}">💗${char}</span>`;
+      });
+      html += `</div>`;
       html += `</div>`;
       eventBox.innerHTML = html;
       nextBtn.classList.add('hidden');
@@ -185,18 +222,112 @@ function handleTrollAction(eventIndex) {
   const event = events[eventIndex];
   const eventBox = document.getElementById('eventText');
   let html = `<div class="troll-message shake">${event.troll.secondMessage}</div>`;
-  html += `<input type="file" id="kissProof" accept="image/*" onchange="handlePhotoUpload(${eventIndex})" class="photo-input">`;
+  html += `
+    <div class="photo-options">
+      <button class="troll-btn" onclick="startCamera(${eventIndex})">📸 Chụp ảnh trực tiếp</button>
+      <input type="file" id="kissProof" accept="image/*" onchange="handlePhotoUpload(${eventIndex})" class="photo-input">
+    </div>
+    <div id="camera-container" class="hidden">
+      <video id="camera-feed" autoplay playsinline></video>
+      <canvas id="camera-canvas" class="hidden"></canvas>
+      <div class="camera-controls">
+        <button class="troll-btn" onclick="capturePhoto(${eventIndex})">Chụp ảnh</button>
+        <button class="troll-btn cancel-btn" onclick="stopCamera()">Hủy</button>
+      </div>
+    </div>
+    <div id="photo-preview" class="hidden">
+      <img id="captured-photo" alt="Captured photo">
+      <div class="photo-preview-controls">
+        <button class="troll-btn" onclick="submitPhoto(${eventIndex})">Gửi ảnh</button>
+        <button class="troll-btn cancel-btn" onclick="retakePhoto()">Chụp lại</button>
+      </div>
+    </div>`;
   eventBox.innerHTML = html;
 }
 
-function handlePhotoUpload(eventIndex) {
-  const fileInput = document.getElementById('kissProof');
-  if (fileInput.files && fileInput.files[0]) {
+// Bắt đầu camera
+async function startCamera(eventIndex) {
+  try {
+    stream = await navigator.mediaDevices.getUserMedia({ video: true });
+    const video = document.getElementById('camera-feed');
+    video.srcObject = stream;
+    document.getElementById('camera-container').classList.remove('hidden');
+  } catch (error) {
+    alert("Không thể truy cập camera: " + error.message);
+    console.error("Camera error:", error);
+  }
+}
+
+// Chụp ảnh từ camera
+function capturePhoto(eventIndex) {
+  const video = document.getElementById('camera-feed');
+  const canvas = document.getElementById('camera-canvas');
+  const context = canvas.getContext('2d');
+
+  // Đặt kích thước canvas bằng kích thước video
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+
+  // Vẽ frame hiện tại từ video lên canvas
+  context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+  // Hiển thị ảnh chụp và ẩn camera
+  const capturedPhoto = document.getElementById('captured-photo');
+  capturedPhoto.src = canvas.toDataURL('image/png');
+  document.getElementById('camera-container').classList.add('hidden');
+  document.getElementById('photo-preview').classList.remove('hidden');
+
+  // Dừng camera
+  stopCamera();
+}
+
+// Dừng camera
+function stopCamera() {
+  if (stream) {
+    stream.getTracks().forEach(track => track.stop());
+    stream = null;
+  }
+  document.getElementById('camera-feed').srcObject = null;
+  document.getElementById('camera-container').classList.add('hidden');
+}
+
+// Chụp lại ảnh
+function retakePhoto() {
+  document.getElementById('photo-preview').classList.add('hidden');
+  startCamera(currentEvent);
+}
+
+// Gửi ảnh đã chụp
+function submitPhoto(eventIndex) {
+  const capturedPhoto = document.getElementById('captured-photo');
+  if (capturedPhoto.src) {
+    // Lưu ảnh đã chụp vào biến toàn cục
+    capturedImage = capturedPhoto.src;
     const event = events[eventIndex];
     displayEventContent(event);
     triggerExtraHearts();
     currentEvent++;
     document.getElementById('nextBtn').classList.remove('hidden');
+  } else {
+    alert("Chưa có ảnh để gửi! Hãy chụp hoặc tải ảnh lên nhé 😜");
+  }
+}
+
+// Xử lý ảnh tải lên
+function handlePhotoUpload(eventIndex) {
+  const fileInput = document.getElementById('kissProof');
+  if (fileInput.files && fileInput.files[0]) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      // Lưu ảnh đã tải lên vào biến toàn cục
+      capturedImage = e.target.result;
+      const event = events[eventIndex];
+      displayEventContent(event);
+      triggerExtraHearts();
+      currentEvent++;
+      document.getElementById('nextBtn').classList.remove('hidden');
+    };
+    reader.readAsDataURL(fileInput.files[0]);
   } else {
     alert("Chưa có ảnh bằng chứng nè! Tải ảnh lên đi em 😜");
   }
@@ -217,13 +348,115 @@ function displayEventContent(event) {
   if (event.video) {
     html += `<video src="${event.video}" class="event-video" controls autoplay></video>`;
   } else if (event.img) {
-    html += `<img src="${event.img}" alt="Image 1" class="event-image">`;
+    // Kiểm tra nếu là sự kiện troll (eventIndex 3) và có ảnh đã chụp thì sử dụng ảnh đó
+    if (currentEvent === 3 && capturedImage) {
+      html += `<img src="${capturedImage}" alt="Captured image" class="event-image">`;
+    } else {
+      html += `<img src="${event.img}" alt="Image 1" class="event-image">`;
+    }
   }
   if (event.img1) {
     html += `<div class="heart-icon">H ❤️ K</div><img src="${event.img1}" alt="Image 2" class="event-image">`;
   }
   html += `</div>`;
   eventBox.innerHTML = html;
+}
+
+// Xử lý kéo thả (Drag-and-Drop)
+function handleDragStart(event) {
+  event.dataTransfer.setData('text/plain', event.target.dataset.char);
+  event.dataTransfer.setData('data-id', event.target.dataset.id);
+  event.target.classList.add('dragging');
+}
+
+function handleDragOver(event) {
+  event.preventDefault();
+}
+
+function handleDrop(event, eventIndex) {
+  event.preventDefault();
+  const char = event.dataTransfer.getData('text/plain');
+  const droppedId = event.dataTransfer.getData('data-id');
+  const dropZone = event.target.closest('.drop-zone');
+  const correctChar = dropZone.dataset.char;
+
+  if (dropZone.classList.contains('drop-zone')) {
+    // Nếu ô đã có ký tự, xóa trước khi thả ký tự mới
+    if (dropZone.classList.contains('filled')) {
+      clearDropZone(dropZone.querySelector('.clear-btn'), eventIndex, false);
+    }
+    dropZone.innerHTML = `<span class="char">${char}</span><span class="clear-btn" onclick="clearDropZone(this, ${eventIndex})">X</span>`;
+    dropZone.classList.add('filled');
+    dropZone.dataset.usedId = droppedId; // Lưu data-id của mảnh ghép đã thả
+    if (char === correctChar) {
+      dropZone.classList.add('correct');
+      dropZone.classList.remove('wrong');
+    } else {
+      dropZone.classList.add('wrong');
+      dropZone.classList.remove('correct');
+    }
+    // Chỉ mờ mảnh ghép cụ thể được thả
+    const draggableItem = document.querySelector(`.draggable-item[data-id="${droppedId}"]`);
+    if (draggableItem) {
+      draggableItem.classList.add('used');
+      draggableItem.style.opacity = '0.3';
+      draggableItem.setAttribute('draggable', 'false');
+    }
+    checkDragDropComplete(eventIndex);
+  }
+}
+
+// Xóa ký tự khỏi ô trống
+function clearDropZone(clearBtn, eventIndex, reset = true) {
+  const dropZone = clearBtn.parentElement;
+  const char = dropZone.querySelector('.char')?.textContent;
+  const usedId = dropZone.dataset.usedId; // Lấy data-id của mảnh ghép đã thả
+
+  // Xóa nội dung ô trống
+  dropZone.innerHTML = `<span class="clear-btn" onclick="clearDropZone(this, ${eventIndex})">X</span>`;
+  dropZone.classList.remove('filled', 'correct', 'wrong');
+  delete dropZone.dataset.usedId; // Xóa data-used-id sau khi xóa
+
+  // Hiển thị lại mảnh ghép chính xác dựa trên data-id
+  const draggableItem = document.querySelector(`.draggable-item[data-id="${usedId}"].used`);
+  if (draggableItem) {
+    draggableItem.classList.remove('used');
+    draggableItem.style.opacity = '1';
+    draggableItem.setAttribute('draggable', 'true');
+  }
+
+  // Kiểm tra lại trạng thái ghép
+  if (reset) {
+    checkDragDropComplete(eventIndex);
+  }
+}
+
+function checkDragDropComplete(eventIndex) {
+  const event = events[eventIndex];
+  const dropZones = document.querySelectorAll('.drop-zone');
+  let allFilled = true;
+  let allCorrect = true;
+
+  dropZones.forEach(zone => {
+    if (!zone.classList.contains('filled')) {
+      allFilled = false;
+    }
+    if (!zone.classList.contains('correct')) {
+      allCorrect = false;
+    }
+  });
+
+  if (allFilled && allCorrect) {
+    handleDragDropComplete(eventIndex);
+  }
+}
+
+function handleDragDropComplete(eventIndex) {
+  const event = events[eventIndex];
+  displayEventContent(event);
+  triggerExtraHearts();
+  currentEvent++;
+  document.getElementById('nextBtn').classList.remove('hidden');
 }
 
 function createHeart() {
