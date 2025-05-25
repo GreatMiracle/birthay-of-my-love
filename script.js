@@ -1,32 +1,40 @@
 const events = [
   {
-    text: "📅 <strong>17/03/2025:</strong><br>Đúng gòyyyy....Ngày đầu tiên 2 đứa mình quen nhau nezz, sượng quá trờiii... 🤭🤭🤭 ",
+    text: "📅 <strong>17/03/2025:</strong><br>Đúng gòyyyy....Ngày đầu tiên 2 đứa mình bắt đầu làm quen nezz, sượng quá trờiii... 🤭🤭🤭 ",
     img: "images/17-3.png",
-    question: "Em có nhớ ngày đầu tiên 2 đứa mình quen nhau là ngày nào khum?",
+    question: "Em có nhớ ngày đầu tiên 2 đứa mình làm quen nhau là ngày nào khum?",
     answers: [
       { text: "17/03/2025", correct: true },
       { text: "01/04/2025", correct: false },
       { text: "03/04/2025", correct: false }
-    ]
+    ],
+    nextButtonText: "👉 Vợ ơi, xem tiếp nào nezz! 😘",
+    backButtonText: "👈 Quay lại nè, iu thương! 💕"
   },
   {
     text: "😴💤 <strong>Khó khăn chưa nezz</strong><br>Ban đầu mới tán em, 20h45p em đã đi ngủ mất tiêu rùii 🤣🤣🤣<br> Sau này mới biết vợ mình là cú đêm hầy, toàn thức tới 2-3h sáng không àhhh <br> ",
-    img: "images/3-4.png"
+    img: "images/3-4.png",
+    nextButtonText: "👉 Tiếp tục nào, cú đêm của anh! 🦉",
+    backButtonText: "👈 Xem lại lúc vợ ngủ sớm nè! 😴"
   },
   {
-    text: "📸📨 <strong>10/04/2025:</strong><br>Lần đầu em gửi ảnh cho anh, còn ngại chẳng dám chụp mặt, chỉ thả nhẹ mỗi 'Hi' thoyyy ✌️✌️✌️ 😳",
+    text: "📸📨 <strong>10/04/2025:</strong><br>Lần đầu Hường gửi ảnh cho anh, em còn ngại chẳng dám chụp mặt, chỉ thả nhẹ chụp mỗi 'Hi' thoyyy ✌️✌️✌️ 😳",
     img: "images/H-hi.jpg",
-    img1: "images/K-hi.jpg"
+    img1: "images/K-hi.jpg",
+    nextButtonText: "👉 Vợ ơi, 'Hi' tiếp đi nè! 😎",
+    backButtonText: "👈 Nhìn lại cái 'Hi' đáng yêu nè! ✌️"
   },
   {
     text: "😘 <strong>Hường hôn anh rùi đó, hứ... thấy ghét 😤😤😤:</strong><br>Dạaaa anh biết rùi...Vợ hôn người ta mạnh thếrrr. Nhưng mà ngta thích lắm ý. Yêu em quá trời 😍. <br>Thoy ngta mềm lòng rùi mở cho xem phần tiếp nezzz 😍",
-    img: "images/cafe.jpg", // Ảnh mặc định, sẽ bị thay thế bằng ảnh đã chụp
+    img: "images/cafe.jpg",
     troll: {
       message: "Hôn anh một cái thì anh mới cho mở tiếp 😘",
       actionText: "Hôn anh 😘",
       action: "handleTrollAction",
-      secondMessage: "Hôn mỗi một cái thế thôi á? Hôn thì phải có bằng chứng chứng minh là đã hôn anh. Chụp ảnh hôn anh gửi vào đây để xem xét nếu được thì mới mở tiếp cho em 😜"
-    }
+      secondMessage: "Hôn mỗi một cái thế thôi á ❌❌❌ Nô..nô..nô? <br> Hôn thì phải có bằng chứng chứng minh là đã hôn anh chứ nhòoo... Người ta rào em ngay luôn gòy Lươn chúa cụa anh ạhhh 😜😜😜<br> Chụp ảnh hôn anh gửi vào đây nhoa, yêu thương 🌹🌹🌹 chụp chuẩn vào để anh còn xem xét xác minh nếu Uki thì anh mới mở tiếp cho em 😜"
+    },
+    nextButtonText: "👉 Hôn xong rùi, đi tiếp nè! 😘",
+    backButtonText: "👈 Hôn anh lại lần nữa nha! 😚"
   },
   {
     text: "🛫💌 <strong>14/04/2025:</strong><br>Nghỉ làm buổi chiều đi tìm chỗ gửi thư tay từ VN qua Nhật 🚴.<br> Nhớ em muốn xỉu mà chỉ mong thư đến tay em sớm nhất thoy 😢",
@@ -34,38 +42,51 @@ const events = [
     findHeart: {
       message: "Yêu thương của anh tìm trái tim đặc biệt trong chữ H đi nezzz <br>Tìm trái tym anh còn được mofhhh.. tìm lá thư anh gửi nhằm nhò rỳ! 😜",
       action: "handleFindHeart"
-    }
+    },
+    nextButtonText: "👉 Thư tới tay vợ rùi, đi tiếp nè! 💌",
+    backButtonText: "👈 Xem lại hành trình gửi thư nè! 🚴"
   },
   {
     text: "🌹 <strong>18/04/2025:</strong><br>Món quà đầu tiên anh dành tặng yêu thương của anh, Yêu thương nhận được quà nè...cười típ cả mắt luôn",
     video: "videos/18-4.mp4",
+    nextButtonText: "👉 Quà đẹp quá, xem tiếp nè! 🌸",
+    backButtonText: "👈 Nhìn lại nụ cười vợ iu nè! 😊"
   },
   {
     text: "🌸 <strong>18/04/2025:</strong><br>Khi mở quà em tìm mãi mà chẳng thấy lá thư đâu! <br> Trông kìa trông kìa... nghệt cái mặt ra, đáng eo quá trời📱 ",
-    video: "videos/18-4.mp4",
+    img: "images/H-18-4.png",
+    nextButtonText: "👉 Vợ đáng eo, đi tiếp nào! 😜",
+    backButtonText: "👈 Xem lại cái mặt nghệt nè! 😝"
   },
   {
-    text: "🌸 <strong>Yêu vợ nhiều lắm</strong><br>Ngày anh tỏ tình với Hường là ngày nào nào... điền để mở khóa nhé",
+    text: "🌸 <strong>Yêu vợ nhiều lắm</strong>",
     dragDrop: {
-      message: "Ghép các mảnh trái tim để hoàn thành đúng ngày anh tỏ tình với em nhé! 💗<br><small>(Kéo thả mảnh ghép vào ô trống format: d/m/yyyy, nhấp 'X' để xóa nếu sai nha.. nhấp nhẹ nhẹ thui)</small>",
+      message: "<br>Ngày anh tỏ tình với Hường là ngày nào nào... <br> Vợ ghép các mảnh số trái tim bên dưới để hoàn thành đúng ngày anh tỏ tình với vợ nezzz! 💗<br><small>(Kéo thả mảnh ghép vào ô trống theo định dạng: d/m/yyyy, nhấp 'X' để xóa nếu kéo sai nha.. nhấp nhẹ nhẹ thui nhớ 🤣 )</small>",
       target: "5/5/2025",
       action: "handleDragDropComplete"
     },
     video: "videos/18-4.mp4",
+    nextButtonText: "👉 Tỏ tình xong, yêu tiếp nè! 💖",
+    backButtonText: "👈 Nhớ lại ngày anh tỏ tình nè! 😍"
   },
   {
-    text: "🎂 <strong>rạng sáng 06/05/2025 Giờ Nhật Bản:</strong><br>Bản tin chiến thắng, chinh phục thành công trái tim em 💖",
-    img: "images/5-5.jpg"
+    text: "🎂 <strong>Đêm ngày 05/05/2025 - Rạng sáng 6/5 Giờ Nhật Bản:</strong><br>📢📢📢 Loa...loa...loa ...loa ...Dậy mà nghe hỡi đồng bào ơiiiiiiiiiiii ☀️☀️☀️ <br>Đây là đài tiếng nói Việt Nam, phát thanh từ Hà Nội thủ đô nước cộng hòa xã hội chủ nghĩa Việt Nam 💖",
+    img: "images/5-5.jpg",
+    nextButtonText: "👉 Loa loa, đi tiếp thôi nào! 📢",
+    backButtonText: "👈 Nghe lại đài tiếng nói nè! 🎙️"
   },
   {
     text: "🎂 <strong>04/06/2025:</strong><br>Hôm nay là sinh nhật em yêu! Anh làm trang web này để kể lại câu chuyện của tụi mình. Anh muốn nói: Anh yêu em nhiều lắmmm, Hường vợ iêu của anh! 💖",
-    img: "images/H-yeu.jpg"
+    img: "images/H-yeu.jpg",
+    nextButtonText: "👉 Sinh nhật vui, xem tiếp nè! 🎉",
+    backButtonText: "👈 Xem lại lời yêu thương nè! 💕"
   }
 ];
 
 let currentEvent = 0;
 let stream = null; // Biến lưu stream từ camera
 let capturedImage = null; // Biến lưu URL của ảnh đã chụp hoặc tải lên
+let fireworksInterval = null; // Biến toàn cục để theo dõi interval pháo hoa
 
 function startCountdown() {
   const countdownElement = document.getElementById('countdown');
@@ -110,11 +131,153 @@ function startJourney() {
   startHeartRain();
 }
 
+
+
+function updateButtonText() {
+  const nextBtn = document.getElementById('nextBtn');
+  const backBtn = document.getElementById('backBtn');
+  const defaultNextText = "👉 Tiếp theo nè! 😊";
+  const defaultBackText = "👈 Quay lại nè! 💕";
+
+  if (currentEvent < events.length) {
+    const event = events[currentEvent];
+    nextBtn.innerHTML = event.nextButtonText || defaultNextText;
+    backBtn.innerHTML = event.backButtonText || defaultBackText;
+  } else {
+    nextBtn.innerHTML = "";
+    backBtn.innerHTML = "👈 Xem lại hành trình yêu nè! 💖";
+  }
+}
+
 function showNextEvent() {
   const eventBox = document.getElementById('eventText');
   const nextBtn = document.getElementById('nextBtn');
+  const backBtn = document.getElementById('backBtn');
+
+  if (fireworksInterval) {
+    clearInterval(fireworksInterval);
+    fireworksInterval = null;
+    document.getElementById('fireworksCanvas').style.display = 'none';
+    document.getElementById('fireworkText').style.display = 'none';
+  }
 
   if (currentEvent < events.length) {
+    const event = events[currentEvent];
+    if (event.question) {
+      let html = `<div class="question">${event.question}</div>`;
+      event.answers.forEach((answer, index) => {
+        html += `<button class="answer-btn" onclick="checkAnswer(${currentEvent}, ${index})">${answer.text}</button>`;
+      });
+      eventBox.innerHTML = html;
+      nextBtn.classList.add('hidden');
+      backBtn.classList.toggle('hidden', currentEvent === 0);
+      updateButtonText();
+    } else if (event.troll) {
+      let html = `<div class="troll-message">${event.troll.message}</div>`;
+      html += `<button class="troll-btn" onclick="${event.troll.action}(${currentEvent})">${event.troll.actionText}</button>`;
+      eventBox.innerHTML = html;
+      nextBtn.classList.add('hidden');
+      backBtn.classList.toggle('hidden', currentEvent === 0);
+      updateButtonText();
+    } else if (event.findHeart) {
+      let html = `<div class="troll-message">${event.findHeart.message}</div>`;
+      html += `<div class="heart-container">`;
+      const hLayout = [
+        [1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1],
+        [1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1],
+        [1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1],
+        [1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1],
+        [1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1]
+      ];
+      const heartPositions = [];
+      hLayout.forEach((row, rowIndex) => {
+        row.forEach((cell, colIndex) => {
+          if (cell === 1) {
+            heartPositions.push([rowIndex, colIndex]);
+          }
+        });
+      });
+      const randomIndex = Math.floor(Math.random() * heartPositions.length);
+      const specialHeartPos = heartPositions[randomIndex];
+      hLayout.forEach((row, rowIndex) => {
+        row.forEach((cell, colIndex) => {
+          if (cell === 1) {
+            if (rowIndex === specialHeartPos[0] && colIndex === specialHeartPos[1]) {
+              html += `<span class="heart-item special-heart" onclick="${event.findHeart.action}(${currentEvent})">💖</span>`;
+            } else {
+              html += `<span class="heart-item">💗</span>`;
+            }
+          } else {
+            html += `<span></span>`;
+          }
+        });
+      });
+      html += `</div>`;
+      eventBox.innerHTML = html;
+      nextBtn.classList.add('hidden');
+      backBtn.classList.toggle('hidden', currentEvent === 0);
+      updateButtonText();
+    } else if (event.dragDrop) {
+      let html = `<div class="troll-message">${event.dragDrop.message}</div>`;
+      html += `<div class="drag-drop-container">`;
+      html += `<div class="drop-zone-container">`;
+      const target = event.dragDrop.target;
+      for (let i = 0; i < target.length; i++) {
+        if (target[i] === ' ') {
+          html += `<span style="width: 10px;"></span>`;
+        } else {
+          html += `<span class="drop-zone" data-char="${target[i]}" ondragover="handleDragOver(event)" ondrop="handleDrop(event, ${currentEvent})"><span class="clear-btn" onclick="clearDropZone(this, ${currentEvent})">X</span></span>`;
+        }
+      }
+      html += `</div>`;
+      html += `<div class="draggable-container">`;
+      const chars = target.split('').filter(char => char !== ' ');
+      const shuffledChars = chars.sort(() => Math.random() - 0.5);
+      let idCounter = 0;
+      shuffledChars.forEach(char => {
+        html += `<span class="draggable-item" draggable="true" ondragstart="handleDragStart(event)" data-char="${char}" data-id="${idCounter++}">💗${char}</span>`;
+      });
+      html += `</div>`;
+      html += `</div>`;
+      eventBox.innerHTML = html;
+      nextBtn.classList.add('hidden');
+      backBtn.classList.toggle('hidden', currentEvent === 0);
+      updateButtonText();
+    } else {
+      displayEventContent(event);
+      nextBtn.classList.remove('hidden');
+      backBtn.classList.toggle('hidden', currentEvent === 0);
+      updateButtonText();
+      currentEvent++; // Tăng currentEvent sau khi cập nhật văn bản nút
+    }
+  } else {
+    eventBox.innerHTML = "🎉 Hết rồi đó bé ơi!<br>Chúc em sinh nhật 4/6 thiệt vui và luôn bên anh mãi mãi nhen! 🥰";
+    nextBtn.style.display = "none";
+    backBtn.classList.remove('hidden');
+    updateButtonText();
+    launchFireworks();
+    document.getElementById('fireworksCanvas').style.display = 'block';
+    document.getElementById('fireworkText').style.display = 'block';
+  }
+}
+
+function showPreviousEvent() {
+  const eventBox = document.getElementById('eventText');
+  const nextBtn = document.getElementById('nextBtn');
+  const backBtn = document.getElementById('backBtn');
+
+  if (fireworksInterval) {
+    clearInterval(fireworksInterval);
+    fireworksInterval = null;
+    document.getElementById('fireworksCanvas').style.display = 'none';
+    document.getElementById('fireworkText').style.display = 'none';
+  }
+
+  if (currentEvent > 0) {
+    currentEvent--;
     const event = events[currentEvent];
     if (event.question) {
       let html = `<div class="question">${event.question}</div>`;
@@ -170,7 +333,6 @@ function showNextEvent() {
     } else if (event.dragDrop) {
       let html = `<div class="troll-message">${event.dragDrop.message}</div>`;
       html += `<div class="drag-drop-container">`;
-      // Tạo ô trống (drop zones)
       html += `<div class="drop-zone-container">`;
       const target = event.dragDrop.target;
       for (let i = 0; i < target.length; i++) {
@@ -181,7 +343,6 @@ function showNextEvent() {
         }
       }
       html += `</div>`;
-      // Tạo mảnh ghép (draggable items) với data-id duy nhất
       html += `<div class="draggable-container">`;
       const chars = target.split('').filter(char => char !== ' ');
       const shuffledChars = chars.sort(() => Math.random() - 0.5);
@@ -195,16 +356,72 @@ function showNextEvent() {
       nextBtn.classList.add('hidden');
     } else {
       displayEventContent(event);
-      currentEvent++;
       nextBtn.classList.remove('hidden');
     }
-  } else {
-    eventBox.innerHTML = "🎉 Hết rồi đó bé ơi!<br>Chúc em sinh nhật 4/6 thiệt vui và luôn bên anh mãi mãi nhen! 🥰";
-    nextBtn.style.display = "none";
-    launchFireworks();
-    document.getElementById('fireworksCanvas').style.display = 'block';
-    document.getElementById('fireworkText').style.display = 'block';
+    backBtn.classList.toggle('hidden', currentEvent === 0);
+    updateButtonText();
   }
+}
+
+function launchFireworks() {
+  const canvas = document.getElementById("fireworksCanvas");
+  const ctx = canvas.getContext("2d");
+  const fireworkSound = document.getElementById("fireworkSound");
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const particles = [];
+
+  function createFirework(x, y) {
+    if (!fireworkSound.paused) {
+      fireworkSound.currentTime = 0;
+    }
+    fireworkSound.play().catch((e) => console.warn("Firework sound playback prevented:", e));
+
+    for (let i = 0; i < 100; i++) {
+      particles.push({
+        x: x,
+        y: y,
+        radius: Math.random() * 2 + 1,
+        color: `hsl(${Math.random() * 360}, 100%, 60%)`,
+        angle: Math.random() * 2 * Math.PI,
+        speed: Math.random() * 5 + 1,
+        alpha: 1
+      });
+    }
+  }
+
+  function animateFireworks() {
+    ctx.fillStyle = "rgba(0,0,0,0.1)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    particles.forEach((p, index) => {
+      p.x += Math.cos(p.angle) * p.speed;
+      p.y += Math.sin(p.angle) * p.speed;
+      p.alpha -= 0.01;
+
+      if (p.alpha <= 0) particles.splice(index, 1);
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI);
+      ctx.fillStyle = p.color;
+      ctx.globalAlpha = p.alpha;
+      ctx.fill();
+      ctx.globalAlpha = 1;
+    });
+
+    requestAnimationFrame(animateFireworks);
+  }
+
+  // Lưu ID của interval để có thể dừng
+  fireworksInterval = setInterval(() => {
+    const x = Math.random() * canvas.width;
+    const y = Math.random() * canvas.height / 2;
+    createFirework(x, y);
+  }, 1500);
+
+  animateFireworks();
 }
 
 function checkAnswer(eventIndex, answerIndex) {
@@ -214,7 +431,7 @@ function checkAnswer(eventIndex, answerIndex) {
     currentEvent++;
     document.getElementById('nextBtn').classList.remove('hidden');
   } else {
-    alert("Sai rồi, thử lại nhé!");
+    alert("Khum có đúng gòy...liu...liu🤪🤪🤪, mình thử lại đuy nhaaa !");
   }
 }
 
@@ -535,13 +752,12 @@ function launchFireworks() {
     requestAnimationFrame(animateFireworks);
   }
 
-  for (let i = 0; i < 5; i++) {
-    setTimeout(() => {
-      const x = Math.random() * canvas.width;
-      const y = Math.random() * canvas.height / 2;
-      createFirework(x, y);
-    }, i * 1000);
-  }
+  // Create new firework bursts every 1.5 seconds
+  setInterval(() => {
+    const x = Math.random() * canvas.width;
+    const y = Math.random() * canvas.height / 2;
+    createFirework(x, y);
+  }, 1500);
 
   animateFireworks();
 }

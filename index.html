@@ -13,39 +13,30 @@
   <div id="music-controls">
     <button id="toggleMusic" onclick="toggleMusic()">🔈</button>
     <select id="trackSelector" onchange="changeTrack(this.value)">
-      <option value="1audio/VoYeu.mp3">Vợ Yêu</option>
+      <option value="audio/VoYeu.mp3">Vợ Yêu</option>
       <option value="audio/HanhPhucMoiNgay.mp3">Hạnh Phúc Mỗi Ngày</option>
       <option value="audio/NgayDauTien.mp3">Ngày Đầu Tiên</option>
     </select>
   </div>
-
   <!-- Thêm audio -->
   <audio id="bg-music" loop autoplay>
     <source src="1audio/VoYeu.mp3" type="audio/mp3">
   </audio>
-
   <canvas id="fireworksCanvas"></canvas>
   <div id="fireworkText">Chúc mừng sinh nhật Hường yêu 💖</div>
-
   <div class="container">
     <h1>🎉 Chờ Đón Sinh Nhật Hường Yêu 4/6/2025! 🎂</h1>
     <div id="countdown" class="countdown"></div>
     <p class="message">Còn vài ngày nữa là đến sinh nhật em yêu, cô gái siêu dễ thương của anh! 💖</p>
     <button id="startBtn" onclick="startJourney()">Nhấn vào đây nè!</button>
-
     <div id="journey" class="hidden">
       <div id="eventText" class="event-box"></div>
-      <button id="nextBtn" class="hidden" onclick="showNextEvent()">👉 Tiếp theo nè!</button>
+      <div class="navigation-buttons">
+        <button id="backBtn" class="hidden" onclick="showPreviousEvent()"></button>
+        <button id="nextBtn" class="hidden" onclick="showNextEvent()"></button>
+      </div>
     </div>
   </div>
-
-  <!-- Popup -->
-  <!-- <div id="successPopup" class="hidden">
-    <div class="popup-content">
-      <div id="popupMessage"></div>
-      <button id="popupOkBtn">OK</button>
-    </div>
-  </div> -->
   <script src="script.js"></script>
 </body>
 

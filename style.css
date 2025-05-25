@@ -41,7 +41,32 @@ button {
 button:hover {
   background-color: #ff2d95; /* Màu khi hover */
 }
+.navigation-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
 
+#backBtn {
+  background-color: #ff6f91;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+#backBtn:hover {
+  background-color: #ff4d73;
+  transform: scale(1.1);
+}
+
+#backBtn.hidden {
+  display: none;
+}
 .hidden {
   display: none; /* Ẩn phần tử */
 }
@@ -322,8 +347,8 @@ button:hover {
 }
 
 .event-video {
-  max-width: 400px;
-  width: 100%;
+  max-width: 300px;
+  width: 80%;
   border-radius: 10px;
   margin: 15px auto;
   box-shadow: 0 0 10px rgba(255, 192, 203, 0.5);
