@@ -12,7 +12,7 @@ const events = [
     backButtonText: "👈 Quay lại nè, iu thương! 💕"
   },
   {
-    text: "😴💤 <strong>Khó khăn chưa nezz</strong><br>Ban đầu mới tán em, 20h45p em đã đi ngủ mất tiêu rùii 🤣🤣🤣<br> Sau này mới biết vợ mình là cú đêm hầy, toàn thức tới 2-3h sáng không àhhh <br> ",
+    text: "😴💤 <strong>Khó khăn lắm luôn ấy</strong><br>Ban đầu mới tán em, 20h45p em đã đi ngủ mất tiêu rùii 🤣🤣🤣<br> Sau này mới biết vợ mình là cú đêm hầy, toàn thức tới 2-3h sáng không àhhh <br> ",
     img: "images/3-4.png",
     nextButtonText: "👉 Tiếp tục nào, cú đêm của anh! 🦉",
     backButtonText: "👈 Xem lại lúc vợ ngủ sớm nhớ! 😴"
@@ -25,7 +25,7 @@ const events = [
     backButtonText: "👈 Nhìn lại haaaa! ✌️"
   },
   {
-    text: "🌹🐱: <strong>Hường hôn anh rùi đó, hứ... thấy ghét 😤😤😤:</strong><br>🐯:Dạaaa anh biết rùi...Vợ hôn người ta mạnh thếrrr. Nhưng mà ngta thích lắm ý. Yêu em quá trời 😍. <br>Thoy ngta mềm lòng rùi mở cho xem phần tiếp nezzz 😍",
+    text: "🌹🐱: <strong>Hường hôn anh rùi đó, hừmmm... ghéttt anhhhh😤😤😤:</strong><br>🐯:Dạaaa anh biết rùi...Vợ hôn anh mạnh thếrrr. Nhưng mà ngta thích lắm ý. Yêu em quá trời 😍. <br>Thoy ngta mềm lòng rùi mở cho xem phần tiếp nezzz 😍",
     img: "images/cafe.jpg",
     troll: {
       message: "Hôn anh một cái thì anh mới cho mở tiếp 😘",
@@ -48,7 +48,7 @@ const events = [
   },
   {
     text: "🌹 <strong>18/04/2025:</strong><br>Món quà đầu tiên anh dành tặng yêu thương của anh, Yêu thương nhận được quà nè...cười típ cả mắt luôn",
-    video: "videos/18-4.mp4",
+    video: "videos/H-18-4.mp4",
     nextButtonText: "👉 Quà đẹp hơmmm, yêu thương em lắm! 🌸",
     backButtonText: "👈 Nhìn lại nụ cười vợ iu nè! 😊"
   },
@@ -83,38 +83,68 @@ const events = [
   }
 ];
 
+// Thêm vào đầu file script.js, sau khai báo biến toàn cục
+const correctPassword = "1609199804061999";
 let currentEvent = 0;
 let stream = null; // Biến lưu stream từ camera
 let capturedImage = null; // Biến lưu URL của ảnh đã chụp hoặc tải lên
 let fireworksInterval = null; // Biến toàn cục để theo dõi interval pháo hoa
 
+// Hàm kiểm tra mật khẩu
+function checkPassword() {
+  const passwordInput = document.getElementById('passwordInput').value.trim();
+  const startBtn = document.getElementById('startBtn');
+  const passwordContainer = document.getElementById('passwordContainer');
+
+  if (passwordInput === correctPassword) {
+    // Ẩn container mật khẩu
+    passwordContainer.classList.add('hidden');
+    // Hiển thị và kích hoạt nút start
+    startBtn.classList.remove('hidden');
+    startBtn.disabled = false;
+    startBtn.style.opacity = "1";
+    alert("Vợ nhập đúng rùi! Giờ vợ có để bắt đầu hành khám phá trình của chúng mình rùi nèzz! 😍");
+  } else {
+    alert("Hường ơi, sai mật khẩu rùi, thử lại nha! Nhập ngày sinh nhật của chồng theo định dạng ddmmyyyy (ví dụ: 04061999) nè! 😜");
+    document.getElementById('passwordInput').value = "";
+  }
+}
+
 function startCountdown() {
   const countdownElement = document.getElementById('countdown');
+  const messageElement = document.querySelector('.message');
   const targetDate = new Date('2025-06-04T00:00:00');
 
   function updateCountdown() {
     const now = new Date();
     const timeDiff = targetDate - now;
 
-    if (timeDiff <= 0) {
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const birthday = new Date(targetDate.getFullYear(), targetDate.getMonth(), targetDate.getDate());
+
+    if (today < birthday) {
+      messageElement.innerHTML = "Chỉ ít thời gian nữa là đến sinh nhật em yêu, cô gái siêu dễ thương của anh! 💖";
+      const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+      countdownElement.innerHTML = `
+        <div class="countdown-text">Còn lại đến sinh nhật em yêu:</div>
+        <div class="countdown-timer">
+          <span>${days} ngày</span>
+          <span>${hours} giờ</span>
+          <span>${minutes} phút</span>
+          <span>${seconds} giây</span>
+        </div>
+      `;
+    } else if (today.getTime() === birthday.getTime()) {
+      messageElement.innerHTML = "Hôm nay là sinh nhật <strong><u>yêu thương</u></strong>💖 của anh! Chúc vợ một ngày thật vui và hạnh phúc bên anh nhé! 💖🎀🎁🧨";
       countdownElement.innerHTML = "🎉 Hôm nay là sinh nhật Hường yêu! 🎂";
-      return;
+    } else {
+      messageElement.innerHTML = "Sinh nhật em năm nay đã qua, nhưng tình yêu của anh vẫn mãi dành cho em! 💕";
+      countdownElement.innerHTML = "🎈 Cùng chờ đến sinh nhật vợ năm sau nhee! 💖";
     }
-
-    const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
-
-    countdownElement.innerHTML = `
-      <div class="countdown-text">Còn lại đến sinh nhật em yêu:</div>
-      <div class="countdown-timer">
-        <span>${days} ngày</span>
-        <span>${hours} giờ</span>
-        <span>${minutes} phút</span>
-        <span>${seconds} giây</span>
-      </div>
-    `;
   }
 
   updateCountdown();

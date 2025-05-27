@@ -13,14 +13,15 @@
   <div id="music-controls">
     <button id="toggleMusic" onclick="toggleMusic()">🔈</button>
     <select id="trackSelector" onchange="changeTrack(this.value)">
+      <option value="audio/PerfectEdSheeran.mp3">Perfect – Ed Sheeran</option>
       <option value="audio/VoYeu.mp3">Vợ Yêu</option>
-      <option value="audio/HanhPhucMoiNgay.mp3">Hạnh Phúc Mỗi Ngày</option>
-      <option value="audio/NgayDauTien.mp3">Ngày Đầu Tiên</option>
+      <option value="audio/BeautifulinWhite.mp3">Beautiful In White</option>
+      <option value="audio/YeuEmHonMoiNgay.mp3">Yêu Em Hơn Mỗi Ngày</option>
     </select>
   </div>
   <!-- Thêm audio -->
   <audio id="bg-music" loop autoplay>
-    <source src="1audio/VoYeu.mp3" type="audio/mp3">
+    <source src="audio/PerfectEdSheeran.mp3" type="audio/mp3">
   </audio>
   <canvas id="fireworksCanvas"></canvas>
   <div id="fireworkText">Chúc mừng sinh nhật Hường yêu 💖</div>
@@ -28,7 +29,17 @@
     <h1>🎉 Chờ Đón Sinh Nhật Hường Yêu 4/6/2025! 🎂</h1>
     <div id="countdown" class="countdown"></div>
     <p class="message">Còn vài ngày nữa là đến sinh nhật em yêu, cô gái siêu dễ thương của anh! 💖</p>
-    <button id="startBtn" onclick="startJourney()">Nhấn vào đây nè!</button>
+
+    <!-- Input mật khẩu -->
+    <div id="passwordContainer">
+      <p class="password-message">Vợ yêu ơi, em nhập ngày sinh nhật của chồng (ddmmyyyy) để bắt đầu hành trình nhee! 😘
+      </p>
+      <input type="text" id="passwordInput" placeholder="Nhập mật khẩu (ddmmyyyy)" maxlength="8">
+      <button id="submitPasswordBtn" onclick="checkPassword()">Xác nhận nè! 💕</button>
+    </div>
+
+    <!-- Ẩn nút startBtn ban đầu -->
+    <button id="startBtn" class="hidden" onclick="startJourney()" disabled>Vợ iêu, nhấn vào đây nè!</button>
     <div id="journey" class="hidden">
       <div id="eventText" class="event-box"></div>
       <div class="navigation-buttons">
