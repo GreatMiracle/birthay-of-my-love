@@ -84,7 +84,8 @@ const events = [
 ];
 
 // Thêm vào đầu file script.js, sau khai báo biến toàn cục
-const correctPassword = "1609199804061999";
+const correctPassword = "16091998";
+const correctPassword1 = "1609199804061999";
 let currentEvent = 0;
 let stream = null; // Biến lưu stream từ camera
 let capturedImage = null; // Biến lưu URL của ảnh đã chụp hoặc tải lên
