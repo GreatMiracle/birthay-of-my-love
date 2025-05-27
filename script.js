@@ -25,13 +25,13 @@ const events = [
     backButtonText: "👈 Nhìn lại haaaa! ✌️"
   },
   {
-    text: "😘 <strong>Hường hôn anh rùi đó, hứ... thấy ghét 😤😤😤:</strong><br>Dạaaa anh biết rùi...Vợ hôn người ta mạnh thếrrr. Nhưng mà ngta thích lắm ý. Yêu em quá trời 😍. <br>Thoy ngta mềm lòng rùi mở cho xem phần tiếp nezzz 😍",
+    text: "🌹🐱: <strong>Hường hôn anh rùi đó, hứ... thấy ghét 😤😤😤:</strong><br>🐯:Dạaaa anh biết rùi...Vợ hôn người ta mạnh thếrrr. Nhưng mà ngta thích lắm ý. Yêu em quá trời 😍. <br>Thoy ngta mềm lòng rùi mở cho xem phần tiếp nezzz 😍",
     img: "images/cafe.jpg",
     troll: {
       message: "Hôn anh một cái thì anh mới cho mở tiếp 😘",
       actionText: "Hôn anh 😘",
       action: "handleTrollAction",
-      secondMessage: "Hôn mỗi một cái thế thôi á ❌❌❌ Nô..nô..nô? <br> Hôn thì phải có bằng chứng chứng minh là đã hôn anh chứ nhòoo... Người ta rào em ngay luôn gòy Lươn chúa cụa anh ạhhh 😜😜😜<br> Chụp ảnh hôn anh gửi vào đây nhoa, yêu thương 🌹🌹🌹 chụp chuẩn vào để anh còn xem xét xác minh nếu Uki thì anh mới mở tiếp cho em 😜"
+      secondMessage: "Hôn mỗi một cái thế thôi á 🚫🚫🚫 Nô..nô..nô? <br> Hôn thì phải có bằng chứng chứng minh là đã hôn anh chứ nhòoo... Người ta rào em ngay luôn gòy Lươn chúa cụa anh ạhhh 😜😜😜<br> Chụp ảnh hôn anh gửi vào đây nhoa, yêu thương 🌹🌹🌹 chụp chuẩn vào để anh còn xem xét xác minh nếu Uki thì anh mới mở tiếp cho em 😜"
     },
     nextButtonText: "👉 Hôn rùi thì làm j tiếp nhở...hỳ hỳ! 😘",
     backButtonText: "👈 Hôn anh lại lần nữa nha! 😚"
@@ -40,7 +40,7 @@ const events = [
     text: "🛫💌 <strong>14/04/2025:</strong><br>Nghỉ làm buổi chiều đi tìm chỗ gửi thư tay từ VN qua Nhật 🚴.<br> Nhớ em muốn xỉu mà chỉ mong thư đến tay em sớm nhất thoy 😢",
     video: "videos/14-4.mp4",
     findHeart: {
-      message: "Yêu thương của anh tìm trái tim đặc biệt trong chữ H đi nezzz <br>Tìm trái tym anh còn được mofhhh.. tìm lá thư anh gửi nhằm nhò rỳ! 😜",
+      message: "Yêu thương của anh tìm trái tim đặc biệt trong chữ H đi nezzz <br>Tìm trái tym anh còn được mòoo.. tìm lá thư anh gửi nhằm nhò rỳ! 😜",
       action: "handleFindHeart"
     },
     nextButtonText: "👉 Thư tới tay vợ rùi, giờ sẽ là,,.! 💌",
@@ -76,7 +76,7 @@ const events = [
     backButtonText: "👈 Nhớ lại ngày anh tỏ tình nè! 😍"
   },
   {
-    text: "🎂 <strong>04/06/2025:</strong><br>Hôm nay là sinh nhật em yêu! Anh làm trang web này để kể lại câu chuyện của tụi mình. Hường à, anh muốn nói với em điều này...: <br><strong>Anh yêu em nhiều lắmmm, vợ iêu của anh!</strong> 💖",
+    text: "🎂 <strong>04/06/2025:</strong><br>Hôm nay là sinh nhật em yêu! Anh làm trang web này để kể lại câu chuyện của tụi mình. Hường à, anh muốn nói với em điều này...: <br><strong>Anh yêu em nhiều lắmmm, vợ iêu của anh! <br>僕は君のことをすごく愛してるよ、僕の大切な奥さん。</strong> 💖",
     img: "images/H-yeu.jpg",
     nextButtonText: "👉 Chúc mừng sinh nhật vợ yêu! 🎉",
     backButtonText: "👈 Đọc lại thơ tặng yêu thương của anh! 💕"
