@@ -8,21 +8,21 @@ const events = [
       { text: "01/04/2025", correct: false },
       { text: "03/04/2025", correct: false }
     ],
-    nextButtonText: "👉 Vợ ơi, xem tiếp nào nezz! 😘",
+    nextButtonText: "👉 Vợ ơi, ấn nhẹ ngta thoyyy! 😘",
     backButtonText: "👈 Quay lại nè, iu thương! 💕"
   },
   {
     text: "😴💤 <strong>Khó khăn chưa nezz</strong><br>Ban đầu mới tán em, 20h45p em đã đi ngủ mất tiêu rùii 🤣🤣🤣<br> Sau này mới biết vợ mình là cú đêm hầy, toàn thức tới 2-3h sáng không àhhh <br> ",
     img: "images/3-4.png",
     nextButtonText: "👉 Tiếp tục nào, cú đêm của anh! 🦉",
-    backButtonText: "👈 Xem lại lúc vợ ngủ sớm nè! 😴"
+    backButtonText: "👈 Xem lại lúc vợ ngủ sớm nhớ! 😴"
   },
   {
     text: "📸📨 <strong>10/04/2025:</strong><br>Lần đầu Hường gửi ảnh cho anh, em còn ngại chẳng dám chụp mặt, chỉ thả nhẹ chụp mỗi 'Hi' thoyyy ✌️✌️✌️ 😳",
     img: "images/H-hi.jpg",
     img1: "images/K-hi.jpg",
-    nextButtonText: "👉 Vợ ơi, 'Hi' tiếp đi nè! 😎",
-    backButtonText: "👈 Nhìn lại cái 'Hi' đáng yêu nè! ✌️"
+    nextButtonText: "👉 Vợ ơi, anh đâyyyyy! 😎",
+    backButtonText: "👈 Nhìn lại haaaa! ✌️"
   },
   {
     text: "😘 <strong>Hường hôn anh rùi đó, hứ... thấy ghét 😤😤😤:</strong><br>Dạaaa anh biết rùi...Vợ hôn người ta mạnh thếrrr. Nhưng mà ngta thích lắm ý. Yêu em quá trời 😍. <br>Thoy ngta mềm lòng rùi mở cho xem phần tiếp nezzz 😍",
@@ -33,7 +33,7 @@ const events = [
       action: "handleTrollAction",
       secondMessage: "Hôn mỗi một cái thế thôi á ❌❌❌ Nô..nô..nô? <br> Hôn thì phải có bằng chứng chứng minh là đã hôn anh chứ nhòoo... Người ta rào em ngay luôn gòy Lươn chúa cụa anh ạhhh 😜😜😜<br> Chụp ảnh hôn anh gửi vào đây nhoa, yêu thương 🌹🌹🌹 chụp chuẩn vào để anh còn xem xét xác minh nếu Uki thì anh mới mở tiếp cho em 😜"
     },
-    nextButtonText: "👉 Hôn xong rùi, đi tiếp nè! 😘",
+    nextButtonText: "👉 Hôn rùi thì làm j tiếp nhở...hỳ hỳ! 😘",
     backButtonText: "👈 Hôn anh lại lần nữa nha! 😚"
   },
   {
@@ -43,13 +43,13 @@ const events = [
       message: "Yêu thương của anh tìm trái tim đặc biệt trong chữ H đi nezzz <br>Tìm trái tym anh còn được mofhhh.. tìm lá thư anh gửi nhằm nhò rỳ! 😜",
       action: "handleFindHeart"
     },
-    nextButtonText: "👉 Thư tới tay vợ rùi, đi tiếp nè! 💌",
+    nextButtonText: "👉 Thư tới tay vợ rùi, giờ sẽ là,,.! 💌",
     backButtonText: "👈 Xem lại hành trình gửi thư nè! 🚴"
   },
   {
     text: "🌹 <strong>18/04/2025:</strong><br>Món quà đầu tiên anh dành tặng yêu thương của anh, Yêu thương nhận được quà nè...cười típ cả mắt luôn",
     video: "videos/18-4.mp4",
-    nextButtonText: "👉 Quà đẹp quá, xem tiếp nè! 🌸",
+    nextButtonText: "👉 Quà đẹp hơmmm, yêu thương em lắm! 🌸",
     backButtonText: "👈 Nhìn lại nụ cười vợ iu nè! 😊"
   },
   {
@@ -59,27 +59,27 @@ const events = [
     backButtonText: "👈 Xem lại cái mặt nghệt nè! 😝"
   },
   {
-    text: "🌸 <strong>Yêu vợ nhiều lắm</strong>",
+    text: "🎂 <strong>Đêm ngày 05/05/2025 - Rạng sáng 6/5 Giờ Nhật Bản:</strong><br>📢📢📢 Loa...loa...loa ...loa ...Dậy mà nghe hỡi đồng bào ơiiiiiiiiiiii ☀️☀️☀️ <br>Đây là đài tiếng nói Việt Nam, phát thanh từ Hà Nội thủ đô nước cộng hòa xã hội chủ nghĩa Việt Nam 💖",
     dragDrop: {
       message: "<br>Ngày anh tỏ tình với Hường là ngày nào nào... <br> Vợ ghép các mảnh số trái tim bên dưới để hoàn thành đúng ngày anh tỏ tình với vợ nezzz! 💗<br><small>(Kéo thả mảnh ghép vào ô trống theo định dạng: d/m/yyyy, nhấp 'X' để xóa nếu kéo sai nha.. nhấp nhẹ nhẹ thui nhớ 🤣 )</small>",
       target: "5/5/2025",
       action: "handleDragDropComplete"
     },
-    video: "videos/18-4.mp4",
-    nextButtonText: "👉 Tỏ tình xong, yêu tiếp nè! 💖",
+    img: "images/5-5.jpg",
+    nextButtonText: "👉 Loa loa, hỳ hỳ...! 📢",
+    backButtonText: "👈 Nghe lại đài tiếng nói nhee! 🎙️"
+  },
+  {
+    text: "🌸 <strong>Yêu vợ nhiều lắm</strong><br>Em chỉ cần là lá🌿🌻<br>Việc của mình là xanh🍀<br>Còn mọi việc để anh☺️<br>Chăm sóc em mỗi ngày 💗💗💗",
+    img: "images/huong-yeu.jpg",
+    nextButtonText: "👉 Tiếp nha, ấn nhẹ thoy chẳng anh đauuu! 💖",
     backButtonText: "👈 Nhớ lại ngày anh tỏ tình nè! 😍"
   },
   {
-    text: "🎂 <strong>Đêm ngày 05/05/2025 - Rạng sáng 6/5 Giờ Nhật Bản:</strong><br>📢📢📢 Loa...loa...loa ...loa ...Dậy mà nghe hỡi đồng bào ơiiiiiiiiiiii ☀️☀️☀️ <br>Đây là đài tiếng nói Việt Nam, phát thanh từ Hà Nội thủ đô nước cộng hòa xã hội chủ nghĩa Việt Nam 💖",
-    img: "images/5-5.jpg",
-    nextButtonText: "👉 Loa loa, đi tiếp thôi nào! 📢",
-    backButtonText: "👈 Nghe lại đài tiếng nói nè! 🎙️"
-  },
-  {
-    text: "🎂 <strong>04/06/2025:</strong><br>Hôm nay là sinh nhật em yêu! Anh làm trang web này để kể lại câu chuyện của tụi mình. Anh muốn nói: Anh yêu em nhiều lắmmm, Hường vợ iêu của anh! 💖",
+    text: "🎂 <strong>04/06/2025:</strong><br>Hôm nay là sinh nhật em yêu! Anh làm trang web này để kể lại câu chuyện của tụi mình. Hường à, anh muốn nói với em điều này...: <br><strong>Anh yêu em nhiều lắmmm, vợ iêu của anh!</strong> 💖",
     img: "images/H-yeu.jpg",
-    nextButtonText: "👉 Sinh nhật vui, xem tiếp nè! 🎉",
-    backButtonText: "👈 Xem lại lời yêu thương nè! 💕"
+    nextButtonText: "👉 Chúc mừng sinh nhật vợ yêu! 🎉",
+    backButtonText: "👈 Đọc lại thơ tặng yêu thương của anh! 💕"
   }
 ];
 
