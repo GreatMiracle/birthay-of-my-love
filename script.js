@@ -103,8 +103,8 @@ function checkPassword() {
 
   const correctPassword = today < birthdayDate ? passwordBeforeBirthday : passwordOnOrAfterBirthday;
   const hint = today < birthdayDate
-    ? "Nhập ngày sinh nhật của chồng theo định dạng ddmmyyyy (19981999) nha! 😜"
-    : "Nhập ngày sinh nhật của Hường theo định dạng ddmmyyyy (16091998) nha! 😜";
+    ? "Nhập ngày sinh nhật của chồng theo định dạng ddmmyyyy nha! 😜"
+    : "Nhập ngày sinh nhật của chồng theo định dạng ddmmyyyy nha! 😜";
 
   if (passwordInput === correctPassword) {
     passwordContainer.classList.add('hidden');
