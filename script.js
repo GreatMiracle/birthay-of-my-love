@@ -84,8 +84,9 @@ const events = [
 ];
 
 // Thêm vào đầu file script.js, sau khai báo biến toàn cục
-const correctPassword = "16091998";
-const correctPassword1 = "1609199804061999";
+const BIRTHDAY_DATE = new Date('2025-06-04T00:00:00');
+const passwordBeforeBirthday = "19981999";
+const passwordOnOrAfterBirthday = "16091998";
 let currentEvent = 0;
 let stream = null; // Biến lưu stream từ camera
 let capturedImage = null; // Biến lưu URL của ảnh đã chụp hoặc tải lên
@@ -96,32 +97,36 @@ function checkPassword() {
   const passwordInput = document.getElementById('passwordInput').value.trim();
   const startBtn = document.getElementById('startBtn');
   const passwordContainer = document.getElementById('passwordContainer');
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const birthdayDate = new Date(BIRTHDAY_DATE.getFullYear(), BIRTHDAY_DATE.getMonth(), BIRTHDAY_DATE.getDate());
+
+  const correctPassword = today < birthdayDate ? passwordBeforeBirthday : passwordOnOrAfterBirthday;
+  const hint = today < birthdayDate
+    ? "Nhập ngày sinh nhật của chồng theo định dạng ddmmyyyy (19981999) nha! 😜"
+    : "Nhập ngày sinh nhật của Hường theo định dạng ddmmyyyy (16091998) nha! 😜";
 
   if (passwordInput === correctPassword) {
-    // Ẩn container mật khẩu
     passwordContainer.classList.add('hidden');
-    // Hiển thị và kích hoạt nút start
     startBtn.classList.remove('hidden');
     startBtn.disabled = false;
     startBtn.style.opacity = "1";
-    alert("Vợ nhập đúng rùi! Giờ vợ có để bắt đầu hành khám phá trình của chúng mình rùi nèzz! 😍");
+    alert("Vợ nhập đúng rùi! Giờ vợ có để bắt đầu xem hành trình của chúng mình rùi nèzz! 😍");
   } else {
-    alert("Hường ơi, sai mật khẩu rùi, thử lại nha! Nhập ngày sinh nhật của chồng theo định dạng ddmmyyyy (ví dụ: 04061999) nè! 😜");
+    alert(`Hường ơi, sai mật khẩu rùi, thử lại nha! ${hint}`);
     document.getElementById('passwordInput').value = "";
   }
 }
-
 function startCountdown() {
   const countdownElement = document.getElementById('countdown');
   const messageElement = document.querySelector('.message');
-  const targetDate = new Date('2025-06-04T00:00:00');
 
   function updateCountdown() {
     const now = new Date();
-    const timeDiff = targetDate - now;
+    const timeDiff = BIRTHDAY_DATE - now;
 
     const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-    const birthday = new Date(targetDate.getFullYear(), targetDate.getMonth(), targetDate.getDate());
+    const birthday = new Date(BIRTHDAY_DATE.getFullYear(), BIRTHDAY_DATE.getMonth(), BIRTHDAY_DATE.getDate());
 
     if (today < birthday) {
       messageElement.innerHTML = "Chỉ ít thời gian nữa là đến sinh nhật em yêu, cô gái siêu dễ thương của anh! 💖";
