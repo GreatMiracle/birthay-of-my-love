@@ -70,7 +70,7 @@ const events = [
     backButtonText: "👈 Nghe lại đài tiếng nói nhee! 🎙️"
   },
   {
-    text: "🌸 <strong>Yêu vợ nhiều lắm</strong><br>Em chỉ cần là lá🌿🌻<br>Việc của mình là xanh🍀<br>Còn mọi việc để anh☺️<br>Chăm sóc em mỗi ngày 💗💗💗",
+    text: "📸 Đây là tấm ảnh mà em thích nhất đúng hông?<br> 🌸 <strong>Yêu vợ nhiều lắm</strong><br>🥰 Chuyện là… anh có điều này muốn nói nè 💌: <br>Em chỉ cần là lá🌿🌻<br>Việc của mình là xanh🍀<br>Còn mọi việc để anh☺️<br>Chăm sóc em mỗi ngày 💗💗💗",
     img: "images/huong-yeu.jpg",
     nextButtonText: "👉 Tiếp nha, ấn nhẹ thoy chẳng anh đauuu! 💖",
     backButtonText: "👈 Nhớ lại ngày anh tỏ tình nè! 😍"
