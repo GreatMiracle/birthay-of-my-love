@@ -77,7 +77,7 @@ const events = [
   },
   {
     text: "🎂 <strong>04/06/2025:</strong><br>Hôm nay là sinh nhật em yêu! Anh làm trang web này để kể lại câu chuyện của tụi mình. Hường à, anh muốn nói với em điều này...: <br><strong>Anh yêu em nhiều lắmmm, vợ iêu của anh! <br>僕は君のことをすごく愛してるよ、僕の大切な奥さん。</strong> 💖",
-    img: "images/H-yeu.jpg",
+    img: "images/em.jpg",
     nextButtonText: "👉 Chúc mừng sinh nhật vợ yêu! 🎉",
     backButtonText: "👈 Đọc lại thơ tặng yêu thương của anh! 💕"
   }
